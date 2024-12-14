@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Chat;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Index;
 
@@ -16,6 +17,7 @@ Route::view('profile', 'profile')
 require __DIR__ . '/auth.php';
 
 // Correct route definition
+Route::get('/chat/{query}', [Chat::class, 'chat'])->name('chat');
 Route::get('/chat', [Index::class, 'index'])->name('chat.index');
 
 
